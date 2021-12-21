@@ -24,7 +24,10 @@ Open Listonic on Main View
 
 
 Accept cookies
+  Wait Until Element Is Visible  ${ACCEPT_COOKIES_BTN}
   click element  ${ACCEPT_COOKIES_BTN}
 
+
 Close advertisement
-  click element ${CLOSE_AD_BTN}
+  Wait Until Element Is Visible  ${CLOSE_AD_BTN}
+  click element  ${CLOSE_AD_BTN}
