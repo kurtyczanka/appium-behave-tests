@@ -1,7 +1,6 @@
 *** Settings ***
 Library  AppiumLibrary
 
-
 *** Variables ***
 ${ANDROID_AUTOMATION_NAME}    UIAutomator2
 ${ANDROID_PLATFORM_NAME}      Android
@@ -11,6 +10,8 @@ ${APP_PACKAGE}  com.l
 ${APP_ACTIVITY}  com.l.ListonicMidletActivity
 ${ACCEPT_COOKIES_BTN}  id=com.l:id/button_agree
 ${CLOSE_AD_BTN}  id=com.l:id/premium_promotion_close_iv
+${MAIN_SCR_EXP_TXT}  Stwórz swoją pierwszą listę \nzaplanuj zakupy \nszybciej i wygodniej
+${MAIN_SCR_EXP_TXT_ELEMENT}  id=com.l:id/emptyViewTV
 
 
 *** Keywords ***
@@ -19,15 +20,19 @@ Open Listonic on Main View
   ...  platformName=${ANDROID_PLATFORM_NAME}  platformVersion=${ANDROID_PLATFORM_VERSION}
   ...  deviceName=${DEVICE_NAME}
   ...  appPackage=${APP_PACKAGE}  appActivity=${APP_ACTIVITY}
+  click element at coordinates  145  2119
   Accept cookies
   Close advertisement
-
+  Application is open on Main View
 
 Accept cookies
   Wait Until Element Is Visible  ${ACCEPT_COOKIES_BTN}
   click element  ${ACCEPT_COOKIES_BTN}
 
-
 Close advertisement
-  Wait Until Element Is Visible  ${CLOSE_AD_BTN}
+  Wait Until Element Is Visible  ${CLOSE_AD_BTN}  timeout=15
   click element  ${CLOSE_AD_BTN}
+
+Application is open on Main View
+  wait until element is visible  ${MAIN_SCR_EXP_TXT_ELEMENT}  timeout=15
+  Element Should Contain Text  ${MAIN_SCR_EXP_TXT_ELEMENT}  ${MAIN_SCR_EXP_TXT}
