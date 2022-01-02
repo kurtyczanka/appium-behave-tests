@@ -20,6 +20,8 @@ Open Listonic on Main View
   ...  platformName=${ANDROID_PLATFORM_NAME}  platformVersion=${ANDROID_PLATFORM_VERSION}
   ...  deviceName=${DEVICE_NAME}
   ...  appPackage=${APP_PACKAGE}  appActivity=${APP_ACTIVITY}
+
+  # workaround for welcome screen which occurs ocassionaly
   click element at coordinates  145  2119
   Accept cookies
   Close advertisement
@@ -30,9 +32,10 @@ Accept cookies
   click element  ${ACCEPT_COOKIES_BTN}
 
 Close advertisement
-  Wait Until Element Is Visible  ${CLOSE_AD_BTN}  timeout=15
+  sleep  1
+  Wait Until Element Is Visible  ${CLOSE_AD_BTN}  timeout=10
   click element  ${CLOSE_AD_BTN}
 
 Application is open on Main View
-  wait until element is visible  ${MAIN_SCR_EXP_TXT_ELEMENT}  timeout=15
+  wait until element is visible  ${MAIN_SCR_EXP_TXT_ELEMENT}  timeout=10
   Element Should Contain Text  ${MAIN_SCR_EXP_TXT_ELEMENT}  ${MAIN_SCR_EXP_TXT}

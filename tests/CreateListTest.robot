@@ -19,19 +19,24 @@ ${TOOLBAR}  id=com.l:id/toolbarBelowPanel
 ${EXPECTED_LIST_TXT}  Zacznij dodawać produkty \nszybko i wygodnie
 ${CREATED_LIST_TXT_ELEMENT}  id=com.l:id/emptyViewTV
 ${ADD_PRODUCT_BTN}  id=com.l:id/addingFAB
+#add product to the list
 ${ADD_PRODUCT_INPUT}  id=com.l:id/input
 ${LIST_ITEMS}  class=android.widget.TextView
+${DONE_BTN}  com.l:id/action_menu_adding_done
+${PRODUCT}  milk
+${PRODUCT_NAME_ON_LIST}  com.l:id/productName
 
 
 *** Test Cases ***
-Create new shopping list
+001 Create new shopping list
   Click on fab button to create new list
   Input list name and accept it
   New list was created
 
-Add item to the list
+002 Add item to the list
   Create new list
   Open Add Products to list view and add product
+  Product is visible on the list
 
 *** Keywords ***
 Click on fab button to create new list
@@ -54,6 +59,10 @@ Create new list
 Open Add Products to list view and add product
   Wait Until Element Is Visible  ${ADD_PRODUCT_BTN}
   click element  ${ADD_PRODUCT_BTN}
-  input text  ${ADD_PRODUCT_INPUT}  mleko
+  input text  ${ADD_PRODUCT_INPUT}  ${PRODUCT}
   click element  ${LIST_ITEMS}
-  sleep  10
+  click element  ${DONE_BTN}
+
+Product is visible on the list
+  wait until element is visible  ${PRODUCT_NAME_ON_LIST}
+  element should contain text  ${PRODUCT_NAME_ON_LIST}  ${PRODUCT}
