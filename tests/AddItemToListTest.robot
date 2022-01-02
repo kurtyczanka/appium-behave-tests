@@ -2,12 +2,15 @@
 Library  AppiumLibrary
 Resource  ../tests/BaseTest.robot
 Resource  ../resources/CreateListPage.robot
+Resource  ../resources/AddItemToListPage.robot
 
 Test Setup  Open Listonic on Main View
 Test Teardown  Close Application
 
 *** Test Cases ***
-001 Create new shopping list
-  Click on fab button to create new list
-  Input list name and accept it
-  New list was created
+002 Add item to the list
+  Create new list
+  Open Add Products to list view
+  Add product to the list
+  Product is visible on the list
+

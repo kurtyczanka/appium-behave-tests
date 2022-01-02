@@ -16,10 +16,13 @@ ${MAIN_SCR_EXP_TXT_ELEMENT}  id=com.l:id/emptyViewTV
 
 *** Keywords ***
 Open Listonic on Main View
-  Open Application  http://127.0.0.1:4723/wd/hub  automationName=${ANDROID_AUTOMATION_NAME}
-  ...  platformName=${ANDROID_PLATFORM_NAME}  platformVersion=${ANDROID_PLATFORM_VERSION}
+  Open Application  http://127.0.0.1:4723/wd/hub
+  ...  automationName=${ANDROID_AUTOMATION_NAME}
+  ...  platformName=${ANDROID_PLATFORM_NAME}
+  ...  platformVersion=${ANDROID_PLATFORM_VERSION}
   ...  deviceName=${DEVICE_NAME}
-  ...  appPackage=${APP_PACKAGE}  appActivity=${APP_ACTIVITY}
+  ...  appPackage=${APP_PACKAGE}
+  ...  appActivity=${APP_ACTIVITY}
 
   # workaround for welcome screen which occurs ocassionaly
   click element at coordinates  145  2119
@@ -32,7 +35,7 @@ Accept cookies
   click element  ${ACCEPT_COOKIES_BTN}
 
 Close advertisement
-  sleep  1
+  sleep  2
   Wait Until Element Is Visible  ${CLOSE_AD_BTN}  timeout=10
   click element  ${CLOSE_AD_BTN}
 
