@@ -21,7 +21,7 @@ Open Listonic on Main View
   ...  appPackage=${APP_PACKAGE}
   ...  appActivity=${APP_ACTIVITY}
 
-  # workaround for welcome screen which occurs ocassionaly
+  # workaround for welcome screen which occurs ocassionaly, works on xiaomi redmi note 7
   click element at coordinates  145  2119
   Accept cookies
   Application is open on Main View
