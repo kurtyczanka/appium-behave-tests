@@ -1,5 +1,4 @@
 *** Settings ***
-Library  AppiumLibrary
 Resource  ../tests/BaseTest.robot
 Resource  ../resources/CreateListPage.robot
 Resource  ../resources/AddItemToListPage.robot

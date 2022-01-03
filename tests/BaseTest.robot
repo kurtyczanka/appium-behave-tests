@@ -1,6 +1,3 @@
-*** Settings ***
-Library  AppiumLibrary
-
 *** Variables ***
 ${ANDROID_AUTOMATION_NAME}    UIAutomator2
 ${ANDROID_PLATFORM_NAME}      Android
@@ -27,17 +24,11 @@ Open Listonic on Main View
   # workaround for welcome screen which occurs ocassionaly
   click element at coordinates  145  2119
   Accept cookies
-  Close advertisement
   Application is open on Main View
 
 Accept cookies
   Wait Until Element Is Visible  ${ACCEPT_COOKIES_BTN}
   click element  ${ACCEPT_COOKIES_BTN}
-
-Close advertisement
-  sleep  2
-  Wait Until Element Is Visible  ${CLOSE_AD_BTN}  timeout=10
-  click element  ${CLOSE_AD_BTN}
 
 Application is open on Main View
   wait until element is visible  ${MAIN_SCR_EXP_TXT_ELEMENT}  timeout=10

@@ -1,6 +1,7 @@
 *** Settings ***
-Library  AppiumLibrary
 Resource  ../tests/BaseTest.robot
+Resource  ../resources/HomePage.robot
+Resource  ../resources/ListPage.robot
 Resource  ../resources/CreateListPage.robot
 
 Test Setup  Open Listonic on Main View
