@@ -1,9 +1,11 @@
 *** Variables ***
 ${ANDROID_AUTOMATION_NAME}    UIAutomator2
 ${ANDROID_PLATFORM_NAME}      Android
-${ANDROID_PLATFORM_VERSION}   10.0
-${DEVICE_NAME}  d25c2f0
+${DEVICE_NAME}  Genymotion Cloud
+${UDID}  localhost:10000
 ${APP_PACKAGE}  com.l
+${APP}  base.apk
+
 ${APP_ACTIVITY}  com.l.ListonicMidletActivity
 ${SKIP_BTN}  com.l:id/skipButton
 ${ACCEPT_COOKIES_BTN}  id=com.l:id/button_agree
@@ -16,8 +18,9 @@ Open Listonic on Main View
   Open Application  http://127.0.0.1:4723/wd/hub
   ...  automationName=${ANDROID_AUTOMATION_NAME}
   ...  platformName=${ANDROID_PLATFORM_NAME}
-  ...  platformVersion=${ANDROID_PLATFORM_VERSION}
   ...  deviceName=${DEVICE_NAME}
+  ...  app=${APP}
+  ...  udid=${UDID}
   ...  appPackage=${APP_PACKAGE}
   ...  appActivity=${APP_ACTIVITY}
 
